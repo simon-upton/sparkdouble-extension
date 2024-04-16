@@ -18,11 +18,14 @@
     }
   },
   "host_permissions": [
-    "https://example.com/"
+    "*://scryfall.com",
+    "*://edhrec.com",
+    "*://google.com"
   ],
   "permissions": [
     "scripting",
     "storage",
+    "tabs",
     "activeTab"
   ]
 }
