@@ -7,10 +7,22 @@
   "action": {
     "default_popup": "index.html"
   },
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "commands": {
+    "share-card": {
+      "suggested_key": "Ctrl+Shift+S",
+      "description": "Share the currently hovered Magic: The Gathering card to your Discord server."
+    }
+  },
   "host_permissions": [
     "https://example.com/"
   ],
   "permissions": [
-    "storage"
+    "scripting",
+    "storage",
+    "activeTab"
   ]
 }
