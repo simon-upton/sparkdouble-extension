@@ -26,9 +26,9 @@
     }
   },
   "host_permissions": [
-    "*://scryfall.com",
-    "*://edhrec.com",
-    "*://google.com"
+    "*://scryfall.com/*",
+    "*://edhrec.com/*",
+    "*://google.com/*"
   ],
   "permissions": [
     "scripting",
