@@ -7,6 +7,14 @@
   "action": {
     "default_popup": "index.html"
   },
+  "content_scripts": [{
+    "matches": [
+      "*://*.scryfall.com/*",
+      "*://*.edhrec.com/*",
+      "*://*.google.com/*"
+    ],
+    "js": ["content-script.js"]
+  }],
   "background": {
     "service_worker": "service-worker.js",
     "type": "module"
