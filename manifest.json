@@ -1,0 +1,7 @@
+{
+  "manifest_version": 3,
+  "name": "SparkDouble",
+  "version": "0.0.1",
+  "description": "Instantly share Magic: The Gathering cards from popular websites to your Discord server!",
+  "author": "Simon Upton - simon@uptonhome.com"
+}
