@@ -1,12 +1,15 @@
 "use strict";
 
 chrome.commands.onCommand.addListener((command) => {
-  if (!command === "share-card") return;
+  if (!(command === "share-card")) return;
 
   // check if current tab is one of allowed sites for user privacy and security
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-    const currentUrl = new URL(tabs[0].url);
+    const currentTab = tabs[0];
+    const currentUrl = new URL(currentTab.url);
     if (!isUrlPermitted(currentUrl)) return;
+
+    chrome.tabs.sendMessage(currentTab.id, { action: "share-card" });
   });
 });
 
