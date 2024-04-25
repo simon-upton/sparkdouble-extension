@@ -16,6 +16,10 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   const hoveredElement = document.elementFromPoint(lastMouseX, lastMouseY);
   if (!(hoveredElement.tagName === "IMG")) return;
 
+  showSentNotif(hoveredElement);
+});
+
+function showSentNotif(hoveredElement) {
   // create "Sent to Discord!" notification and calculate/place it center-bottom of target card
   const body = document.body;
   const hoveredElementRect = hoveredElement.getBoundingClientRect();
@@ -43,4 +47,4 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   container.appendChild(successText);
 
   body.appendChild(container);
-});
+}
