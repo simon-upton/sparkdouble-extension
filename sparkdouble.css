@@ -1,0 +1,47 @@
+.sparkdouble-sent-notif {
+  position: absolute;
+  background-color: transparent;
+  backdrop-filter: blur(8px) brightness(0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  justify-content: space-between;
+  width: 150px;
+  z-index: 5000;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  padding: 6px 8px 6px 6px;
+  margin: 6px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  animation: slidein 0.5s forwards;
+}
+
+.sparkdouble-sent-notif img {
+  height: 25px;
+  z-index: 1000;
+}
+
+.sparkdouble-sent-notif p {
+  z-index: 1000;
+  font-family: sans-serif;
+  color: white;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@keyframes slidein {
+  from {
+    max-height: 0px;
+    height: 0px;
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  to {
+    max-height: 40px;
+    height: 39px;
+    transform: scale(1);
+    opacity: 1;
+  }
+}
