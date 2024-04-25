@@ -10,10 +10,10 @@
   "content_scripts": [{
     "matches": [
       "*://*.scryfall.com/*",
-      "*://*.edhrec.com/*",
-      "*://*.google.com/*"
+      "*://*.edhrec.com/*"
     ],
-    "js": ["content-script.js"]
+    "js": ["sparkdouble.js"],
+    "css": ["sparkdouble.css"]
   }],
   "background": {
     "service_worker": "service-worker.js",
@@ -25,10 +25,16 @@
       "description": "Share the currently hovered Magic: The Gathering card to your Discord server."
     }
   },
+  "web_accessible_resources": [{
+    "resources": ["images/checkanimation.gif"],
+    "matches": [
+      "*://*.scryfall.com/*",
+      "*://*.edhrec.com/*"
+    ]
+  }],
   "host_permissions": [
     "*://scryfall.com/*",
-    "*://edhrec.com/*",
-    "*://google.com/*"
+    "*://edhrec.com/*"
   ],
   "permissions": [
     "scripting",
