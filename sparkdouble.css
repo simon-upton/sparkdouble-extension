@@ -17,6 +17,10 @@
   animation: slidein 0.5s forwards;
 }
 
+.sparkdouble-sent-notif.transition-out {
+  animation: fadeOut 0.5s forwards;
+}
+
 .sparkdouble-sent-notif img {
   height: 25px;
   z-index: 1000;
@@ -43,5 +47,14 @@
     height: 39px;
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

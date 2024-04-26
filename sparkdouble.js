@@ -10,11 +10,28 @@ document.addEventListener("mousemove", (e) => {
   lastMouseY = e.clientY;
 });
 
+const activeNotifs = new Map();
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (!(request.action === "share-card")) return;
 
   const hoveredElement = document.elementFromPoint(lastMouseX, lastMouseY);
   if (!(hoveredElement.tagName === "IMG")) return;
+
+  const COOLDOWN = 2_500;
+
+  const date = new Date();
+  const hoveredAsString = hoveredElement.outerHTML;
+  // has the card notification happened before? If so, have we surpassed its COOLDOWN?
+  if (
+    activeNotifs.has(hoveredAsString) &&
+    activeNotifs.get(hoveredAsString) > date.getTime()
+  ) {
+    return;
+  }
+
+  // TODO: this feels like a brittle way to store/track recently sent cards
+  activeNotifs.set(hoveredAsString, date.getTime() + COOLDOWN);
 
   showSentNotif(hoveredElement);
 });
@@ -47,4 +64,10 @@ function showSentNotif(hoveredElement) {
   container.appendChild(successText);
 
   body.appendChild(container);
+
+  // wait for the notification to complete its success animation, trigger and wait for fadeout animation to play, then remove element from DOM
+  setTimeout(() => {
+    container.classList.add("transition-out");
+    setTimeout(() => container.remove(), 800);
+  }, 1500);
 }
