@@ -1,0 +1,271 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* End style reset */
+
+* {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+button,
+input[type="submit"] {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+/* palette origin: https://tailwindcss.com/docs/customizing-colors */
+:root {
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --gray-950: #030712;
+
+  --green-500: #22c55e;
+
+  --red-700: #b91c1c;
+}
+
+body {
+  width: 300px;
+  padding: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 0.9rem;
+  background-color: var(--gray-950);
+  /* oddly specific, but is calculated by the height after the "discard changes" text is displayed */
+  height: 432.805px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.content-container > p {
+  margin-bottom: 0.7rem;
+  color: var(--gray-100);
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--gray-600);
+  border: 1px solid var(--gray-800);
+  border-radius: 8px;
+  padding: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.keybind {
+  color: var(--gray-400);
+  font-size: 0.9rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1.1rem;
+  padding: 0 0.6rem;
+}
+
+/* Minimal Form Generic: Resets */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  resize: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Minimal Form Objects: Styles */
+
+/* Label */
+.text-label {
+  display: block;
+  margin-bottom: 0.25em;
+  font-weight: bold;
+  color: var(--gray-300);
+}
+
+/* Text Input */
+input[type="text"],
+input[type="number"],
+textarea,
+input[type="date"] {
+  padding: 10px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--gray-600);
+  background-color: var(--gray-900);
+  caret-color: var(--gray-100);
+  color: var(--gray-100);
+  border-radius: 6px;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border-color: gray;
+}
+
+input[type="text"],
+input[type="number"] {
+  margin-bottom: 1rem;
+}
+
+/* remove arrows from number inputs */
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  appearance: none;
+  -moz-appearance: textfield;
+}
+
+/* save button */
+
+#save-button {
+  width: 100%;
+  padding: 0.75rem 1.9rem;
+  border-radius: 6px;
+  color: var(--gray-100);
+  background-color: var(--gray-800);
+  transition: background-color ease-in-out 0.3s;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-bottom: 0.6rem;
+}
+
+#save-button:hover {
+  background-color: #415c76;
+}
+
+#save-button.save-success {
+  background-color: var(--green-500);
+}
+
+/* credits */
+
+#credits {
+  color: var(--gray-700);
+  text-align: center;
+}
+
+#credits a {
+  color: var(--gray-600);
+  text-decoration: none;
+}
+
+/* unsaved/discard changes text */
+
+.unsaved-changes {
+  color: var(--gray-300);
+  margin-top: -8px;
+  margin-bottom: 8px;
+  display: none;
+}
+
+.unsaved-changes.visible {
+  display: block;
+}
+
+.unsaved-changes > span {
+  color: var(--red-700);
+}
+
+.unsaved-changes > a {
+  text-decoration: underline;
+  color: var(--red-700);
+  cursor: pointer;
+}

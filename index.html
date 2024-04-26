@@ -4,8 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SparkDouble</title>
+  <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-  
+  <div class="content-container">
+    <div class="logo-container">
+      <img src="./images/sparkdoublelong.png" alt="">
+    </div>
+    <p>Hover a card and press <br><b class="keybind"></b></p>
+    <form>
+      <label class="text-label" for="userId">User ID</label>
+      <input type="number" name="userId" id="userId-input">
+      <label class="text-label" for="secret">Secret Token</label>
+      <input type="text" name="secret" id="secret-input">
+      <p class="unsaved-changes"><span>*</span> Showing unsaved changes. <a>Discard</a></p>
+      <input type="submit" value="Save" id="save-button">
+    </form>
+  </div>
+  <!-- TODO: change GitHub link to project link -->
+  <p id="credits">Made by Simon Upton with ♡ - <a href="https://www.github.com/simon-upton" target="_blank">GitHub</a></p>
+  <script src="./index.js"></script>
 </body>
 </html>
