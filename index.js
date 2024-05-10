@@ -8,7 +8,7 @@ function getKeybind() {
     navigator.userAgent.indexOf("X11") != -1 ||
     navigator.userAgent.indexOf("Linux") != -1
   ) {
-    keybind = "⌃ + ⇧ + S";
+    keybind = "Ctrl + ⇧ + S";
   } else if (navigator.userAgent.indexOf("Mac") != -1) {
     keybind = "⌘ + ⇧ + S";
   }
