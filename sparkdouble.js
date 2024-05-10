@@ -12,7 +12,7 @@ document.addEventListener("mousemove", (e) => {
 
 const activeNotifs = new Map();
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
   if (!(request.action === "share-card")) return;
 
   const hoveredElement = document.elementFromPoint(lastMouseX, lastMouseY);
@@ -34,6 +34,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   activeNotifs.set(hoveredAsString, date.getTime() + COOLDOWN);
 
   showSentNotif(hoveredElement);
+
+  const savedUserId = (await chrome.storage.sync.get("userId")).userId;
+  const savedSecret = (await chrome.storage.sync.get("secret")).secret;
+
+  chrome.runtime.sendMessage({
+    action: "postCard",
+    data: {
+      imgUrl: hoveredElement.src,
+      userId: savedUserId,
+      secret: savedSecret,
+    },
+  });
 });
 
 function showSentNotif(hoveredElement) {
