@@ -7,7 +7,7 @@
     <img src="https://i.ibb.co/n0zXNVC/sparkdoublelong.png" alt="SparkDouble Long Logo">
   </a>
 
-  <h3 align="center">SparkDouble Server</h3>
+  <h3 align="center">SparkDouble Extension</h3>
 
   <p align="center">
     The Chrome extension/frontend for the <a href="https://github.com/simon-upton/sparkdouble-server">SparkDouble Discord bot</a>, allowing users to share Magic: The Gathering cards to their Discord servers.
